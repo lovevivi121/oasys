@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect information</title>
+    <link rel="stylesheet" href="../../primordial_css/appear/appear.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../primordial_css/body-box.css">
+    <link rel="stylesheet" href="../../primordial_css/Perfect_information/Perfect_information.css">
+    <!-- /////////////////////////////////////////////////////////////////////////////// -->
+    <script src="../../jQuery/jquery.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .photo {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0px, 20px;
+            margin-left: 69px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: rgb(223, 223, 223);
+            border: 13px solid rgb(223, 223, 223);
+            overflow: hidden !important;
+            transform: rotate(-1deg);
+        }
+        
+        .photo:before {
+            position: absolute;
+            content: '';
+            width: 35px;
+            height: 35px;
+            top: 0px;
+            right: 20px;
+            border-radius: 50%;
+            background: #aaa;
+            border: 2px solid #fff;
+            transform: scale(0);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            -webkit-animation: user-head 0.5s 0s forwards;
+            -moz-animation: user-head 0.5s 0s forwards;
+            animation: user-head 0.5s 0s forwards;
+        }
+        
+        .photo:after {
+            position: absolute;
+            content: '';
+            width: 140px;
+            height: 220px;
+            top: 38px;
+            right: -32px;
+            border-radius: 50%;
+            background: #aaa;
+            border: 2px solid #fff;
+            transform: translateY(36px);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            -webkit-animation: user-body 0.5s 0.3s forwards;
+            -moz-animation: user-body 0.5s 0.3s forwards;
+            animation: user-body 0.5s 0.3s forwards;
+        }
+        
+        @-webkit-keyframes user-head {
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -moz-transform: scale(1);
+            }
+        }
+        
+        @-moz-keyframes user-head {
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -moz-transform: scale(1);
+            }
+        }
+        
+        @keyframes user-head {
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -moz-transform: scale(1);
+            }
+        }
+        
+        @-webkit-keyframes user-body {
+            100% {
+                -webkit-transform: translateY(2px);
+                transform: translateY(2px);
+                -moz-transform: translateY(2px);
+            }
+        }
+        
+        @-moz-keyframes user-body {
+            100% {
+                -webkit-transform: translateY(2px);
+                transform: translateY(2px);
+                -moz-transform: translateY(2px);
+            }
+        }
+        
+        @keyframes user-body {
+            100% {
+                -webkit-transform: translateY(2px);
+                transform: translateY(2px);
+                -moz-transform: translateY(2px);
+            }
+        }
+        
+        textarea {
+            width: 238px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <!-- 头像部分 -->
+                    <h1 class="page-title">头像</h1>
+                    <div class="box" style="overflow: hidden;">
+                        <div>
+                            <!-- onclick="$(this).next().click();" 用于点击图片使得其作用是点击下面的input标签-->
+                            <!-- <img src="" id="avatar" onclick="$(this).next().click();" onerror="this.src=''"> -->
+                            <div class="photo"></div>
+                            <div>
+                                <input type="file" id="btn-file" onchange="inputFile(this)" accept="image/*">
+                                <input type="submit" name="" id="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 自我介绍部分 -->
+                    <h1 class="page-title">自我介绍</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box">
+                                <form action="../../primordial_php/perfect_information3.php" method="post">
+                                    <textarea name="introducemyself" id="self_introduction" cols="30" rows="10" placeholder="建议500字以上哦"></textarea>
+                                    <input type="text" name="name_a" id="siid" style="display: none;">
+                                    <input type="submit" name="" id="" value="保存">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--个人格言部分 -->
+                    <h1 class="page-title">个人格言</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box">
+                                <form action="../../primordial_php/perfect_information4.php" method="post">
+                                    <textarea name="introducemyself" id="personal_motto" cols="30" rows="10" placeholder="建议500字以上哦"></textarea>
+                                    <input type="text" name="name_b" id="personal_motto_id" style="display: none;">
+                                    <input type="submit" name="" id="" value="保存">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span9">
+
+                    <!-- ///////////////////////////////// -->
+                    <!-- 个人基础信息部分 -->
+                    <h1 class="page-title">个人基础信息</h1>
+                    <div class="box-container">
+                        <div class="box">
+                            <table cellspacing="0" class="table table-sm table-bordered table-striped">
+                                <form action="../../primordial_php/perfect_information1.php" method="post">
+                                    <tr>
+                                        <td>姓名</td>
+                                        <td>
+                                            <input type="text" name="name_" id="username" onfocus="this.blur()">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>部门</td>
+                                        <td>
+                                            <input type="text" id="section" onfocus="this.blur()">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>职务</td>
+                                        <td>
+                                            <input type="text" id="work" onfocus="this.blur()">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>年龄</td>
+                                        <td>
+                                            <input type="text" name="age_" id="age">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>邮箱</td>
+                                        <td>
+                                            <input type="text" name="email_" id="email">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>新浪微博</td>
+                                        <td>
+                                            <input type="text" name="weibo_" id="xlwb">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>微信</td>
+                                        <td>
+                                            <input type="text" name="wechat_" id="wechat">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>腾讯QQ</td>
+                                        <td>
+                                            <input type="text" name="qq_" id="qq">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>电话号码</td>
+                                        <td>
+                                            <input type="text" name="phone_" id="phone">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>家庭住址</td>
+                                        <td>
+                                            <input type="text" name="ads_" id="address">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input type="submit" name="name1" id="name">
+                                        </td>
+                                    </tr>
+                                </form>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ////////////////////////// -->
+                <!-- 其他信息 -->
+                <div class="span9">
+                    <h1 class="page-title">其他信息</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box">
+                                <table cellspacing="0" class="table table-sm table-bordered table-striped">
+                                    <form action="../../primordial_php/perfect_information2.php" method="post">
+                                        <tr style="display: none;">
+                                            <td>id</td>
+                                            <td>
+                                                <input type="text" name="name_" id="other_id">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>身份证</td>
+                                            <td>
+                                                <input type="text" name="idcard_" id="idcard" onfocus="this.blur()">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>婚姻情况</td>
+                                            <td>
+                                                <input type="text" name="marriage_" id="marriage">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>性取向</td>
+                                            <td>
+                                                <input type="text" name="sex_ori_" id="sex_ori">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>社交平台账号（粉丝数量大于100的请填写）</td>
+                                            <td>
+                                                <input type="text" name="social_acc" id="social_acc">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>血型</td>
+                                            <td>
+                                                <input type="text" name="blood_" id="blood">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>身高</td>
+                                            <td>
+                                                <input type="text" name="height_" id="height">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>体重</td>
+                                            <td>
+                                                <input type="text" name="weight_" id="weight">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>生日</td>
+                                            <td>
+                                                <input type="text" name="birthday_" id="birthday">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <input type="submit" name="name2" id="name2">
+                                            </td>
+                                        </tr>
+                                    </form>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //选择文件完毕的回调
+            function inputFile(obj) {
+
+                const file = obj.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    $("#avatar").attr("src", this.result);
+                }
+            }
+        </script>
+        <!-- //更新个人信息表 -->
+        <script>
+            var username = localStorage.getItem("username");
+            var work = localStorage.getItem("work");
+            var age = localStorage.getItem("age");
+            var email = localStorage.getItem("email");
+            var xlwb = localStorage.getItem("xlwb");
+            var wechat = localStorage.getItem("wechat");
+            var qq = localStorage.getItem("qq");
+            var phone = localStorage.getItem("phone");
+            var address = localStorage.getItem("address");
+            var section = localStorage.getItem("section");
+            var idcard = localStorage.getItem("idcard");
+            //
+            var marriage = localStorage.getItem("marriage");
+            // console.log(marriage);
+            var sex_ori = localStorage.getItem("sex_ori");
+            var social_acc = localStorage.getItem("social_acc");
+            var blood = localStorage.getItem("blood");
+            var height = localStorage.getItem("height");
+            var weight = localStorage.getItem("weight");
+            var birthday = localStorage.getItem("birthday");
+            var self_introduction = localStorage.getItem("self_introduction");
+            var personal_motto = localStorage.getItem("personal_motto");
+            //以上是登录用户的基本信息，若是用js获取直接找左边的变量，对页面内容进行更改即可。下面都是获取的例子，为要接入的标签设置好唯一的id，然后将其value或者innerHTML进行修改。
+            document.getElementById("username").value = username;
+            document.getElementById("work").value = work;
+            document.getElementById("age").value = age;
+            document.getElementById("email").value = email;
+            document.getElementById("xlwb").value = xlwb;
+            document.getElementById("wechat").value = wechat;
+            document.getElementById("qq").value = qq;
+            document.getElementById("phone").value = phone;
+            document.getElementById("address").value = address;
+            document.getElementById("section").value = section;
+            document.getElementById("idcard").value = idcard;
+            //
+            document.getElementById("marriage").value = marriage;
+            document.getElementById("sex_ori").value = sex_ori;
+            document.getElementById("social_acc").value = social_acc;
+            document.getElementById("blood").value = blood;
+            document.getElementById("height").value = height;
+            document.getElementById("weight").value = weight;
+            document.getElementById("birthday").value = birthday;
+            document.getElementById("self_introduction").value = self_introduction;
+            document.getElementById("personal_motto").value = personal_motto;
+            //自我介绍
+            // document.getElementById("self_introduction").value = self_introduction;
+            document.getElementById("siid").value = username;
+            //个人格言
+            document.getElementById("personal_motto_id").value = username;
+            //
+            document.getElementById("other_id").value = username;
+        </script>
+        <script src="../../primordial_js/lanhuo.js"></script>
+</body>
+
+</html>

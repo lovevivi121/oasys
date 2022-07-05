@@ -1,0 +1,22 @@
+@-webkit-keyframes fadein {
+    0% {
+        /* margin-left: -102%; */
+        /* box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.2); */
+        /* background-color: rgb(104, 101, 102); */
+        opacity: 0;
+    }
+    100% {
+        /* margin-left: 0%; */
+        opacity: 1;
+    }
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: .6s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我要请假</title>
+    <link rel="stylesheet" href="../../primordial_css/appear/appear.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../primordial_css/body-box.css">
+
+
+    <!-- //////////////////////////////////////// -->
+    <script src="../../jQuery/jquery.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1 class="page-title">我要请假</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box">
+                                <table cellspacing="0" id="table-basic" class="table table-sm table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <!-- <td>申请编号</td> -->
+                                            <td>申请人员</td>
+                                            <td>申请日期</td>
+                                            <td>申请类别</td>
+                                            <td>开始时间</td>
+                                            <td>结束时间</td>
+                                            <!-- <td>流程状态</td> -->
+                                            <td>审批人</td>
+                                            <td>操作</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <form action="../../primordial_php/sub_app.php" method="post">
+                                                <!-- <td>申请编号</td> -->
+                                                <td>
+                                                    <input type="text" name="name">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="date">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="reason">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="start_time">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="end_time">
+                                                </td>
+                                                <!-- <td>流程状态</td> -->
+                                                <td>
+                                                    <select name="shenpiren" id="shenpiren">
+                                                        <option value="lididi">黎爸爸</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="submit" name="submit" id="submit">
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../../primordial_js/lanhuo.js"></script>
+</body>
+
+</html>

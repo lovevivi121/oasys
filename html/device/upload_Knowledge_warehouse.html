@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload_file</title>
+    <link rel="stylesheet" href="../../primordial_css/appear/appear.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../primordial_css/body-box.css">
+    <!-- /////////////////////////////////////////////////////////////////////////////// -->
+    <script src="../../jQuery/jquery.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../jQuery/vue.min.js"></script>
+    <!-- //////////////////////////////////////////////////////////////////// -->
+    <!-- 上传文件插件 -->
+    <link rel="stylesheet" href="../../upload_file/upload.css">
+</head>
+
+<body>
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1 class="page-title">上传文件</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box">
+                                <!-- 上传文件组件 -->
+                                <div>
+                                    <form action="../../primordial_php/upload_Knowledge.php" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="file">
+                                        <input type="submit" value="上传">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../primordial_js/lanhuo.js"></script>
+
+</html>

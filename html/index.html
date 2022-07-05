@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>oasys</title>
+    <!-- 引入原生css -->
+    <link rel="stylesheet" href="../primordial_css/index.css">
+
+    <!-- 引入btn css -->
+    <!-- <link rel="stylesheet" href="../primordial_css/btn/btn.css"> -->
+    <!-- 引入bootstrap文件 -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <!-- 引入jquery -->
+    <script src="../jQuery/jquery.min.js"></script>
+    <!-- 引入bootstrap jquery -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- 用于解决左边导航栏 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../primordial_css/dashbord.css" rel="stylesheet">
+    <script src="../primordial_js/nav_js/style.js"></script>
+
+    <!-- //////////////////////////////////////////////////////// -->
+    <!-- 左侧导航栏 -->
+    <!-- <link rel="stylesheet" href="../primordial_css/nav_css/style.css"> -->
+    <link rel="stylesheet" href="../primordial_css/left_nav/page.css">
+    <link rel="stylesheet" href="../primordial_css/left_nav/icons.min.css">
+
+    <!-- 登录模态框 -->
+    <link rel="stylesheet" href="../login/css/account.css">
+    <link rel="stylesheet" href="../login/css/default.css">
+    <!-- 登录btn -->
+    <link rel="stylesheet" href="../primordial_css/btn/btn.css">
+    <style>
+        iframe img {
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- //////////////////////////////////////// -->
+    <!-- 导航栏部分 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button> -->
+                <a class="navbar-brand" href="#">OAsys</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" href="#log" id="login">登录</a></li>
+                    <li><a href="device/register.html" id="register">注册</a></li>
+                    <li>
+                        <a href="device/personal_data.php" class="li-a-a" target="iframe" id="person"></a>
+                    </li>
+                    <li>
+                        <a href="index.html" id="logout" style="display: none;">退出登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /////////////////////////////////////////////////////////////// -->
+    <!-- container-fluid盒子包含了左边的导航栏和主体部分 -->
+    <div class="container-fluid">
+        <!-- row里面包含了左边的导航栏和主体部分-->
+        <div class="row">
+            <!-- sidebar是左边的导航栏入口 -->
+            <div class="col-sm-3 col-md-2 sidebar">
+                <div class="page" id="app">
+                    <div class="nav-left" v-show="navLeftFlag" ref="navLeft">
+                        <div class="navDiv">
+                            <div class="navName">导航
+                            </div>
+                            <div class="nav-list">
+                                <ul>
+                                    <li class="nav-tab a_active waves-effect">
+                                        <a href="device/home.php" class="li-a active" target="iframe"><i class='bx bx-home-smile'></i> 主页</a>
+                                    </li>
+
+                                    <!-- <li class="nav-tab">
+                                        <a href="#" class="li-a"><i class='bx bx-home-smile'></i> 设备管理</a>
+                                    </li> -->
+                                    <li class="nav-tab nav-ul">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx bx-layer'></i> 个人应用
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/personal_data.php" class="li-a-a" target="iframe">个人资料</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/Perfect_information.html" class="li-a-a" target="iframe">完善个人资料</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/personal_memo.html" class="li-a-a" target="iframe">个人备忘录</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/system_information.php" class="li-a-a" target="iframe">系统消息</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-tab nav-ul">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx bx-buildings'></i> 行政办公
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/upload_Knowledge_warehouse.html" class="li-a-a" target="iframe">上传分享知识仓库</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-tab nav-ul">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx bx-buildings'></i> 协作办公
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/Application_approval.php" class="li-a-a" target="iframe">请假申请</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/Submit_application.html" class="li-a-a" target="iframe">提交申请</a>
+                                        </div>
+                                        <!-- <div class="nav-box">
+                                            <a href="device/Team_members.html" class="li-a-a" target="iframe">部门成员</a>
+                                        </div> -->
+                                    </li>
+                                    <li class="nav-tab nav-ul">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx bx-edit'></i> 综合信息
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/Member_list.php" class="li-a-a" target="iframe">成员列表</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="board/add_show1.php" class="li-a-a" target="iframe">电子论坛</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/News.php" class="li-a-a" target="iframe">新闻公告</a>
+                                        </div>
+                                        <div class="nav-box">
+                                            <a href="device/Activity_list.php" class="li-a-a" target="iframe">活动列表</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-tab nav-ul">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx bx-edit'></i> 知识管理
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/Knowledge_warehouse.php" class="li-a-a" target="iframe">知识仓库</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-tab nav-ul" id="rights">
+                                        <a href="javascript:void[0]" class="li-a logincookie"><i class='bx  bx-cog'></i> 系统管理
+                                        <i class='bx bx-chevron-right' style="float: right;"></i></a>
+                                        <div class="nav-box">
+                                            <a href="device/User_rights_management.php" class="li-a-a" target="iframe">用户权限管理</a>
+                                        </div>
+
+                                        <div class="nav-box" id="add_news">
+                                            <a href="device/add_news.php" class="li-a-a" target="iframe">添加新闻</a>
+                                        </div>
+                                        <div class="nav-box" id="search_news">
+                                            <a href="device/search_news.php" class="li-a-a" target="iframe">修改新闻</a>
+                                        </div>
+                                        <div class="nav-box" id="admin_index">
+                                            <a href="board/admin/admin_index.php" class="li-a-a" target="iframe">管理论坛</a>
+                                        </div>
+                                        <div class="nav-box" id="admin_index">
+                                            <a href="device/add_activity.php" class="li-a-a" target="iframe">发布活动</a>
+                                        </div>
+                                        <div class="nav-box" id="admin_index">
+                                            <a href="device/add_system_notice.php" class="li-a-a" target="iframe">发布系统公告</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //////////////////////////////////////////////// -->
+            <!-- 主体部分入口 -->
+            <div class="nav-right col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ref="navRight">
+                <!-- <div class="nav-top">
+                    <button type="button" class="btn btn-primary btn-sm hiddenBtn" style="line-height: 10px;" @click="isShowLeft">
+                            <i class="bx bx-grid-alt" style="font-size: 16px;"></i>
+                        </button> -->
+                <!-- <button type="button" class="btn btn-primary btn-sm showBtn" style="line-height: 10px; display: none;" onclick="showNavRight">
+                            <i class="bx bx-expand" style="font-size: 16px;"></i>
+                        </button> -->
+                <!-- </div> -->
+                <div class="content-page" ref="cPage">
+                    <iframe name="iframe" width="100%" height="3000px" frameborder="0" src="device/home.php"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 烂活儿的js -->
+    <script src="../primordial_js/lanhuo.js"></script>
+
+    <!-- 左侧导航栏 -->
+    <script src="../primordial_js/left_nav/vue.min.js"></script>
+    <script type="text/javascript">
+        // 打开一级菜单
+        // 做前端判定,如果有cookie,就可以打开导航栏
+        // 如果没有,打开登录模态框
+        var logincookie = document.getElementsByClassName("logincookie");
+        $(function() {
+                let navflag = false;
+                $('.nav-tab').click(function() {
+                        var flag = 0;
+                        //对是否登录进行判断
+                        if (document.cookie.indexOf("islogin") === -1) //没有cookie
+                        {
+                            flag = 1;
+                            // console.log(flag);
+                            alert("请先登录")
+
+                        } else {
+                            // console.log(flag);
+                            $(this).siblings().each(function() {
+                                    $(this).removeClass('a_active');
+                                    // $(this).removeClass('a_active');
+                                    $(this).find('.nav-box').css('height', '0')
+                                        //关闭右侧箭头
+                                    if ($(this).attr('class').indexOf('nav-ul') != -1) {
+                                        $(this).find('.bx-chevron-right').css('transform', 'rotateZ(0deg)')
+                                        $(this).find('.bx-chevron-right').css('transition', 'all .5s')
+                                        $(this).removeClass('nav-show')
+                                            // $(this).find('div').removeClass('nav-box')
+                                    }
+                                })
+                                //当前选中
+                            $(this).addClass('a_active')
+                            $(this).find('.li-a').addClass('active')
+                                //  打开右侧箭头
+                            $(this).find('.bx-chevron-right').css('transform', 'rotateZ(90deg)')
+                            $(this).find('.bx-chevron-right').css('transition', 'all .5s')
+                            $(this).addClass('nav-show')
+                                // $(this).find('div').addClass('nav-box')
+                        }
+                    })
+                    /* 二级菜单a点击事件 */
+                $(".li-a-a").click(function() {
+                    $(".li-a-a").each(function() {
+                        $(this).removeClass('active-li-a');
+                    })
+                    $(this).addClass('active-li-a');
+                })
+
+            })
+            // const vue = new Vue({
+            //     el: '#app',
+            //     data: {
+            //         navLeftFlag: true
+            //     },
+            //     methods: {
+            //         isShowLeft() {
+            //             if (this.navLeftFlag) {
+            //                 this.$refs.navRight.style.paddingLeft = '0px'
+            //                 this.$refs.cPage.style.left = '0px';
+            //                 this.navLeftFlag = false;
+            //                 // this.$refs.navLeft.style.width = '0px';
+            //                 // setTimeout(()=>{
+            //                 // 	this.navLeftFlag = false;
+            //                 // },200)
+            //             } else {
+            //                 this.$refs.navRight.style.paddingLeft = '240px';
+            //                 this.$refs.cPage.style.left = '240px';
+            //                 this.navLeftFlag = true;
+            //                 // this.$refs.navLeft.style.width = '240px';
+            //                 // setTimeout(()=>{
+            //                 // 	this.navLeftFlag = true;
+            //                 // },200)
+            //             }
+            //         }
+            //     }
+            // })
+    </script>
+    <!-- ///////////////////////////////////////////////////////////////////////////// -->
+    <!-- 以上为框架的搭建 -->
+    <!-- ////////////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- 登录模态框 fade是出现消失淡出样式-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="log">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content login">
+                <!-- ///////////// -->
+                <!-- 从这里写登录模态框 -->
+
+                <div class="photo">
+                </div>
+                <span>请使用名字进行登录</span>
+                <!-- form表单 -->
+                <form action="" id="login-form" method="post">
+                    <div id="u" class="form-group">
+                        <input id="username" spellcheck=false class="form-control" name="username" type="text" size="18" alt="login">
+                        <span class="form-highlight"></span>
+                        <span class="form-bar"></span>
+                        <label for="username" class="float-label">名字</label>
+                        <erroru>
+                            请输入名字
+                            <i>		
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24h-24z" fill="none"/>
+                                <path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                          </i>
+                        </erroru>
+                    </div>
+                    <div id="p" class="form-group">
+                        <input id="password" class="form-control" name="password" type="password" size="18">
+                        <span class="form-highlight"></span>
+                        <span class="form-bar"></span>
+                        <label for="password" class="float-label">密码</label>
+                        <errorp>
+                            请输入密码
+                        </errorp>
+                    </div>
+                    <div class="form-group">
+                        <!-- <button id="btn" type="button" ripple name="btn">登录</button> -->
+                        <input type="button" name="btn" id="btn" value="登录" class="button shiny" style="right: -105px;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ////////////////// -->
+
+    </div>
+    <!-- /////////////////////////////////// -->
+    <!-- 登录模态框 -->
+    <script>
+        $(function() {
+            var animationLibrary = 'animate';
+            $.easing.easeOutQuart = function(x, t, b, c, d) {
+                return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+            };
+            $('[ripple]:not([disabled],.disabled)').on('mousedown', function(e) {
+                var button = $(this);
+                var touch = $('<touch><touch/>');
+                var size = button.outerWidth() * 1.8;
+                var complete = false;
+                $(document).on('mouseup', function() {
+                    var a = {
+                        'opacity': '0'
+                    };
+                    if (complete === true) {
+                        size = size * 1.33;
+                        $.extend(a, {
+                            'height': size + 'px',
+                            'width': size + 'px',
+                            'margin-top': -size / 2 + 'px',
+                            'margin-left': -size / 2 + 'px'
+                        });
+                    }
+                    touch[animationLibrary](a, {
+                        duration: 500,
+                        complete: function() {
+                            touch.remove();
+                        },
+                        easing: 'swing'
+                    });
+                });
+                touch.addClass('touch').css({
+                    'position': 'absolute',
+                    'top': e.pageY - button.offset().top + 'px',
+                    'left': e.pageX - button.offset().left + 'px',
+                    'width': '0',
+                    'height': '0'
+                });
+                // button.get(0).appendChild(touch.get(0));
+                touch[animationLibrary]({
+                    'height': size + 'px',
+                    'width': size + 'px',
+                    'margin-top': -size / 2 + 'px',
+                    'margin-left': -size / 2 + 'px'
+                }, {
+                    queue: false,
+                    duration: 500,
+                    'easing': 'easeOutQuart',
+                    'complete': function() {
+                        complete = true;
+                    }
+                });
+            });
+        });
+        var username = $('#username'),
+            password = $('#password'),
+            erroru = $('erroru'),
+            errorp = $('errorp'),
+            submit = $('#submit'),
+            udiv = $('#u'),
+            pdiv = $('#p');
+        username.blur(function() {
+            if (username.val() == '') {
+                udiv.attr('errr', '');
+            } else {
+                udiv.removeAttr('errr');
+            }
+        });
+        password.blur(function() {
+            if (password.val() == '') {
+                pdiv.attr('errr', '');
+            } else {
+                pdiv.removeAttr('errr');
+            }
+        });
+        // 实现登录回调
+        var btn = document.getElementById("btn");
+        var usernameipt = document.getElementById("username");
+        var passwordipt = document.getElementById("password");
+        btn.onclick = function() {
+                var username = usernameipt.value;
+                var password = passwordipt.value;
+                // console.log(11);
+                // 发送ajax到登录接口
+                $.post("device/login.php", {
+                    username: username,
+                    password: password
+                }, function(data) {
+                    console.log(data);
+                    // 根据data的error值进行处理
+                    if (data.error === 0) {
+                        //超管登陆成功,进入回调函数
+                        //设置相关权限
+                        document.getElementById("rights").style.display = "block";
+                        //登录成功后设置相关资料
+                        var usernamedata = data.username;
+                        // // console.log(11);
+                        // // console.log(usernamedata);
+                        // $.post("device/personal_data.php", {
+                        //     usernamedata: usernamedata
+                        // }, function(reword) {
+                        //     console.log(reword);
+                        // }, "json")
+                        //缓存分三步，首先php获取回调值，然后这边建立storage缓存，然后用变量储存，然后使用
+                        //利用local storage进行值的储存
+                        localStorage.setItem("username", usernamedata);
+                        localStorage.setItem("work", data.work);
+                        localStorage.setItem("age", data.age);
+                        localStorage.setItem("email", data.email);
+                        localStorage.setItem("xlwb", data.xlwb);
+                        localStorage.setItem("wechat", data.wechat);
+                        localStorage.setItem("qq", data.qq);
+                        localStorage.setItem("phone", data.phone);
+                        localStorage.setItem("address", data.address);
+                        localStorage.setItem("section", data.section);
+                        //
+                        localStorage.setItem("idcard", data.idcard);
+                        localStorage.setItem("marriage", data.marriage);
+                        localStorage.setItem("sex_ori", data.sex_ori);
+                        localStorage.setItem("social_acc", data.social_acc);
+                        localStorage.setItem("blood", data.blood);
+                        localStorage.setItem("height", data.height);
+                        localStorage.setItem("weight", data.weight);
+                        localStorage.setItem("birthday", data.birthday);
+                        localStorage.setItem("self_introduction", data.self_introduction);
+                        localStorage.setItem("personal_motto", data.personal_motto);
+                        localStorage.setItem("memo_1", data.memo_1);
+                        localStorage.setItem("memo_2", data.memo_2);
+                        localStorage.setItem("memo_3", data.memo_3);
+                        localStorage.setItem("memo_4", data.memo_4);
+
+                        //对主页面的一些框架进行修改
+                        document.getElementById("register").style.display = "none";
+                        document.getElementById("login").style.display = "none";
+                        document.getElementById("logout").style.display = "block";
+                        document.getElementById("person").innerHTML = "欢迎回来," + usernamedata;
+                        $('.modal').modal('hide');
+
+
+                    } else if (data.error === 1) {
+                        //普工登陆成功
+                        document.getElementById("rights").style.display = "none";
+                        //
+                        var usernamedata = data.username;
+                        localStorage.setItem("username", usernamedata);
+                        localStorage.setItem("work", data.work);
+                        localStorage.setItem("age", data.age);
+                        localStorage.setItem("email", data.email);
+                        localStorage.setItem("xlwb", data.xlwb);
+                        localStorage.setItem("wechat", data.wechat);
+                        localStorage.setItem("qq", data.qq);
+                        localStorage.setItem("phone", data.phone);
+                        localStorage.setItem("address", data.address);
+                        localStorage.setItem("section", data.section);
+                        //
+                        //
+                        localStorage.setItem("idcard", data.idcard);
+                        localStorage.setItem("marriage", data.marriage);
+                        localStorage.setItem("sex_ori", data.sex_ori);
+                        localStorage.setItem("social_acc", data.social_acc);
+                        localStorage.setItem("blood", data.blood);
+                        localStorage.setItem("height", data.height);
+                        localStorage.setItem("weight", data.weight);
+                        localStorage.setItem("birthday", data.birthday);
+                        localStorage.setItem("self_introduction", data.self_introduction);
+                        localStorage.setItem("personal_motto", data.personal_motto);
+                        localStorage.setItem("memo_1", data.memo_1);
+                        localStorage.setItem("memo_2", data.memo_2);
+                        localStorage.setItem("memo_3", data.memo_3);
+                        localStorage.setItem("memo_4", data.memo_4);
+                        //
+                        document.getElementById("register").style.display = "none";
+                        document.getElementById("login").style.display = "none";
+                        document.getElementById("logout").style.display = "block";
+                        document.getElementById("person").innerHTML = "欢迎回来," + usernamedata;
+                        $('.modal').modal('hide');
+                    } else {
+                        alert("登录失败");
+                    }
+                }, "json")
+            }
+            // 退出登录
+        $('#logout').click(function() {
+            // console.log("点击了");
+
+            // function delCookie(islogin) {
+            //     var exp = new Date();
+            //     exp.setTime(exp.getTime() - 1);
+            //     var cval = getCookie("islogin");
+            //     if (cval != null)
+            //         document.cookie = "islogin" + "=" + cval + ";expires=" + exp.toGMTString();
+            // }
+            // ////////////////////////////////////////////////////////////////////////////////////////////
+            $.post("device/logout.php", function(data) {
+                console.log(data);
+            }, "json")
+        });
+    </script>
+
+</body>
+
+</html>

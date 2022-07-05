@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal_memo</title>
+    <link rel="stylesheet" href="../../primordial_css/appear/appear.css">
+    <!-- /////////////// -->
+    <!-- 身体盒子部分 -->
+    <link rel="stylesheet" href="../../primordial_css/appear/appear.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../primordial_css/body-box.css">
+
+
+    <!-- //////////////////////////////////////// -->
+    <script src="../../jQuery/jquery.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <!-- /////////////////////////////////////////////// -->
+    <!-- 表格部分 -->
+    <style>
+
+    </style>
+</head>
+
+<body onload="getCurrentTime()">
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1 class="page-title">个人备忘录</h1>
+                    <div class="box-container">
+                        <div class="box-holder">
+                            <div class="box-holder">
+                                <!-- /////////////////////////////// -->
+                                <!-- 左边 -->
+                                <div class="span3">
+                                    <h1 class="page-title">重要三件事</h1>
+                                    <div class="box-container">
+                                        <div class="box-holder">
+                                            <div class="box">
+                                                <table>
+                                                    <form action="post">
+                                                        <table cellspacing="0" id="table-basic" class="table table-sm table-bordered table-striped">
+                                                            <tr>
+                                                                <td><input type="checkbox" name="inp"></td>
+                                                                <td>
+                                                                    <p id="memo_1">
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox" name="inp"></td>
+                                                                <td id="memo_2"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox" name="inp"></td>
+                                                                <td id="memo_3"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </form>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 中间 -->
+                                <div class="span5 ">
+                                    <h1 class="page-title ">备忘录</h1>
+                                    <div class="box-container ">
+                                        <div class="box-holder ">
+                                            <div class="box ">
+                                                <form action="../../primordial_php/personal_memo2.php" method="post">
+                                                    <textarea name="first" id="memo_4" cols="70 " rows="20 " style="width: 438px;height: 328px;"></textarea>
+                                                    <input type="text" style="display:none;" name="name_a" id="id">
+                                                    <input type="submit" value="保存">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 右边 -->
+                                <div class="span3 ">
+                                    <h1 class="page-title ">中国时间</h1>
+                                    <div class="box-container ">
+                                        <div class="box-holder ">
+                                            <div class="box ">
+                                                <div id="clock" style="font-size:30px;font-weight:bold;">
+                                                    <div class="box1" id="h" style="display:inline"></div>
+                                                    <div class="box2" style="display:inline">:</div>
+                                                    <div class="box1" id="m" style="display:inline"></div>
+                                                    <div class="box2" style="display:inline">:</div>
+                                                    <div class="box1" id="s" style="display:inline"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="page-title ">编辑重要三件事</h1>
+                                    <div class="box-container ">
+                                        <div class="box-holder ">
+                                            <div class="box ">
+                                                <form action="../../primordial_php/personal_memo1.php" class="table-shadow " method="post">
+                                                    <table cellspacing="0 " id="table-basic " class="table table-sm table-bordered table-striped ">
+                                                        <tr>
+                                                            <td><input type="text" style="display:none;" name="name_a" id="ids"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" name="first" id="first"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" name="second" id="second"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="text" name="third" id="third"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="submit" value="保存"></td>
+                                                        </tr>
+                                                    </table>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 时钟 -->
+    <script>
+        //获取显示小时的区域框对象
+        var hour = document.getElementById('h');
+        //获取显示分钟的区域框对象
+        var minute = document.getElementById('m');
+        //获取显示秒的区域框对象
+        var second = document.getElementById('s');
+
+        //获取当前时间
+        function getCurrentTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            if (h < 10) h = '0' + h; //确保0-9时也显示成两位数
+            if (m < 10) m = '0' + m; //确保0-9分钟也显示成两位数
+            if (s < 10) s = '0' + s; //确保0-9秒也显示成两位数
+
+            hour.innerHTML = h;
+            minute.innerHTML = m;
+            second.innerHTML = s;
+        }
+        //每秒更新一次时间
+        setInterval('getCurrentTime()', 1000);
+    </script>
+    <script>
+        // 接入登录数据
+        var username = localStorage.getItem("username");
+        var memo_1 = localStorage.getItem("memo_1");
+        var memo_2 = localStorage.getItem("memo_2");
+        var memo_3 = localStorage.getItem("memo_3");
+        var memo_4 = localStorage.getItem("memo_4");
+
+        document.getElementById("memo_1").innerHTML = memo_1;
+        document.getElementById("memo_2").innerHTML = memo_2;
+        document.getElementById("memo_3").innerHTML = memo_3;
+        document.getElementById("memo_4").innerHTML = memo_4;
+        document.getElementById("id").value = username;
+        document.getElementById("ids").value = username;
+        //
+        console.log(11);
+        console.log(memo_1);
+    </script>
+    <script src="../../primordial_js/lanhuo.js"></script>
+</body>
+
+</html>

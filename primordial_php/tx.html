@@ -1,0 +1,30 @@
+<!-- <title>
+
+    <?php
+                    $con = mysqli_connect('localhost', 'root', '123456', 'register', '33066') or die('连接数据库失败');
+                    mysqli_set_charset($con, 'utf8mb4');
+
+                    $sql = "SELECT * FROM register";
+                    $result = mysqli_query($con, $sql);
+
+                    if($result && mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<tr>';
+                            echo '<td>'.$row['lname'].'</td>';
+                            echo '<td>'.$row['work'] .'</td>';
+                            echo '<td>'.$row['age'].'</td>';
+                            echo '<td>'.$row['email'].'</td>';
+                            echo '<td>'.$row['xlwb'].'</td>';
+                            echo '<td>'.$row['qq'].'</td>';
+                            echo '<td>'.$row['txwb'].'</td>';
+                            echo '<td>'.$row['phone'].'</td>';
+                            echo '<td>'.$row['ads'].'</td>';
+                            echo '<td>'.'<a href="#">踢出成员</a>'.' '.'<a href="#">修改成员</a>'.'</td>';
+                            echo '</tr>';
+                        }
+                    }
+    ?>
+        - PHP.cn!</title> -->
+<?php
+    echo 'hello';
+?>
